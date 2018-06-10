@@ -172,6 +172,18 @@ class Wallet
     }
 
     /**
+     * Send all dust output back to a wallet with mixin 0
+     * @return string
+     */
+    public function sweepAll ($address) {
+        $body = [
+            'method' => 'sweep_all',
+            'params' => ['address' => $address]
+        ];
+        return $this->_request($body);
+    }
+
+    /**
      * Save the blockchain.
      * @return string
      */
@@ -271,6 +283,42 @@ class Wallet
         $body = [
             'method' => 'split_integrated_address',
             'params' => $params
+        ];
+        return $this->_request($body);
+    }
+
+    /**
+     * Creates a new wallet.
+     * @param string $filename
+     * @param string $password
+     * @param string $language
+     * @return string
+     */
+    public function createWallet ($filename='dit_wallet', $password='ditcoin', $language='English') {
+        $body = [
+            'method' => 'create_wallet',
+            'params' => [
+                'filename'=> $filename,
+                'password'=> $password,
+                'language'=> $language
+            ]
+        ];
+        return $this->_request($body);
+    }
+
+    /**
+     * Opens a wallet.
+     * @param string $filename
+     * @param string $password
+     * @return string
+     */
+    public function openWallet ($filename='dit_wallet', $password='ditcoin') {
+        $body = [
+        'method' => 'open_wallet',
+            'params' => [
+                'filename'=> $filename,
+                'password'=> $password
+            ]
         ];
         return $this->_request($body);
     }
