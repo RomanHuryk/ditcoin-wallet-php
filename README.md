@@ -6,13 +6,44 @@ For more information about Ditcoin, please visit https://ditcoin.io.
 
 If you found this useful, feel free to donate!
 
-DTC: `9RUGwFu3WGh3wAkeWWzMNiQXiW9ChYRpH974mDdrGcjpEcpPrz143oc9sV1W8YyAUwCztbfxt9usZSMVnSBwPxCaDXzhYWz`
+DIT: `9RUGwFu3WGh3wAkeWWzMNiQXiW9ChYRpH974mDdrGcjpEcpPrz143oc9sV1W8YyAUwCztbfxt9usZSMVnSBwPxCaDXzhYWz`
 
 ## Installation
 
 Install the library using Composer.
     
     composer require ditcoin/ditcoin-wallet
+
+## Run an Instance of the RPC Wallet
+
+For internal communication through library and RPC wallet, following options are optional:
+
+```bash
+--rpc-bind-port
+--rpc-bind-ip
+--daemon-host
+--confirm-external-bind
+```
+
+**Note**: more informations can be found using `--help` option.
+
+### Without authentification
+
+```bash
+ditcoin-wallet-rpc --password "$wallet_password" --wallet-file $wallet_filepath --rpc-bind-port 19092 --rpc-bind-ip $external_ip --daemon-host $external_ip --confirm-external-bind --disable-rpc-login
+```
+
+### With authentification
+
+```bash
+ditcoin-wallet-rpc --password "$wallet_password" --wallet-file $wallet_filepath --rpc-bind-port 19092 --rpc-bind-ip $external_ip --daemon-host $external_ip --confirm-external-bind --rpc-login 'ditrpc_user:rpc_password'
+```
+
+### Multi-wallets usage
+
+```bash
+ditcoin-wallet-rpc --password "$wallet_password" --wallet-file $wallet_filepath --rpc-bind-port 19092 --rpc-bind-ip $external_ip --daemon-host $external_ip --confirm-external-bind --rpc-login 'ditrpc_user:rpc_password' --wallet-dir $wallet_dirpath
+```
 
 ## Create an Instance of the Wallet
 
@@ -30,11 +61,13 @@ To connect to an external IP or different port:
 ```php
 $hostname = YOUR_WALLET_RPC_IP;
 $port = YOUR_WALLET_RPC_PORT;
+
 $wallet = new Ditcoin\Wallet($hostname, $port);
 
 # or with rpc authentification needed
 $username = YOUR_WALLET_RPC_USERNAME;
 $password = YOUR_WALLET_RPC_PASSWORD;
+
 $wallet = new Ditcoin\Wallet($hostname, $port, $username, $password);
 
 ```
