@@ -28,9 +28,15 @@ Default hostname and port connects to http://127.0.0.1:19092.
 To connect to an external IP or different port:
 
 ```php
-$hostname = YOUR_WALLET_IP;
-$port = YOUR_WALLET_PORT;
+$hostname = YOUR_WALLET_RPC_IP;
+$port = YOUR_WALLET_RPC_PORT;
 $wallet = new Ditcoin\Wallet($hostname, $port);
+
+# or with rpc authentification needed
+$username = YOUR_WALLET_RPC_USERNAME;
+$password = YOUR_WALLET_RPC_PASSWORD;
+$wallet = new Ditcoin\Wallet($hostname, $port, $username, $password);
+
 ```
 
 ## Wallet Methods
@@ -38,7 +44,9 @@ $wallet = new Ditcoin\Wallet($hostname, $port);
 ### createWallet
 Usage:
 
-```
+```php
+# used when rpc wallet is started with `--wallet-dir` option
+
 $wallet->createWallet('dit_wallet', 'ditcoin', 'English');
 ```
 
@@ -61,7 +69,9 @@ Returns an object with `error` field if unsuccessful.
 ### openWalllet
 Usage:
 
-```
+```php
+# used when rpc wallet is started with `--wallet-dir` option
+
 $wallet->openWallet('dit_wallet', 'ditcoin');
 ```
 
