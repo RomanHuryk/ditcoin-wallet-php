@@ -1,4 +1,4 @@
-# Ditcoin-PHP
+# Ditcoin-Wallet-PHP
 
 A PHP library for the `ditcoin-wallet-rpc` interface. 
 
@@ -12,7 +12,7 @@ DTC: `9RUGwFu3WGh3wAkeWWzMNiQXiW9ChYRpH974mDdrGcjpEcpPrz143oc9sV1W8YyAUwCztbfxt9
 
 Install the library using Composer.
     
-    composer require ditcoin/ditcoin-php
+    composer require ditcoin/ditcoin-wallet
 
 ## Create an Instance of the Wallet
 

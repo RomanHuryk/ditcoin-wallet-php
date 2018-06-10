@@ -1,5 +1,5 @@
 {
-    "name": "ditcoin/ditcoin-php",
+    "name": "ditcoin/ditcoin-wallet",
     "description": "A PHP library for the `ditcoin-wallet-rpc` interface.",
     "keywords": [
         "Ditcoin",
@@ -12,7 +12,7 @@
         "cryptocurrency", 
         "Shapeshift"
     ],
-    "homepage": "https://github.com/ditcoin/ditcoin-php",
+    "homepage": "https://github.com/ditcoin/ditcoin-wallet-php",
     "type": "library",
     "license": "MIT",
     "authors": [
