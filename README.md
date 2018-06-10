@@ -1,6 +1,6 @@
 # Ditcoin-PHP
 
-A PHP library for the Ditcoin `simplewallet` JSON-RPC interface. 
+A PHP library for the `ditcoin-wallet-rpc` interface. 
 
 For more information about Ditcoin, please visit https://ditcoin.io.
 
@@ -303,4 +303,4 @@ Example response:
 $wallet->stopWallet();
 ```
 
-Cleanly shuts down the current simplewallet process.
+Cleanly shuts down the current `ditcoin-wallet-rpc` process.
